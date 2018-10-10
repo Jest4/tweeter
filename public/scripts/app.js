@@ -71,6 +71,8 @@ function createTweetElement (tweetInfo) {
   return tweet
 }
 
+//DATESTAMP NEEDS TO BE FORMATTED (maybe use npm time-ago ??)
+
 function renderTweets(data) {
   data.forEach(tweet => $('#tweets-container').append(createTweetElement(tweet)))
 }
