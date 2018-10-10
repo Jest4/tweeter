@@ -4,12 +4,17 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $( document ).ready(function() {
+
   $(function() {
     var $button = $('#tweetForm');
     $button.submit(function (event) {
       event.preventDefault();
+      if ($('#tweetBox').val().length < 141) {
       var $serialized = $( tweetForm).serialize();
       $.post("/tweets", $serialized);
+      } else{
+        alert("You have exceeded the character limit for tweets!")
+      }
     });
   });
 
