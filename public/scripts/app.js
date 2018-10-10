@@ -3,9 +3,7 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-
 $( document ).ready(function() {
-// var $tweet = $("<article>").addClass("tweet");
 const tweetData = [
   {
     "user": {
@@ -53,6 +51,15 @@ const tweetData = [
   }
 ];
 
+  $(function() {
+    var $button = $('#tweetForm');
+    $button.submit(function (event) {
+      event.preventDefault();
+      var $serialized = $( tweetForm).serialize();
+      $.post("/tweets", $serialized);
+    });
+  });
+
 function createTweetElement (tweetInfo) {
   let tweetStamp = (new Date().getTime()) - (new Date(tweetInfo.created_at))
  var tweet = `<article class="tweet">
@@ -69,18 +76,12 @@ function createTweetElement (tweetInfo) {
     </footer>
   </article>`;
   return tweet
+//DATESTAMP NEEDS TO BE FORMATTED (maybe use npm moment.js or time-ago ??)
 }
-
-//DATESTAMP NEEDS TO BE FORMATTED (maybe use npm time-ago ??)
 
 function renderTweets(data) {
   data.forEach(tweet => $('#tweets-container').append(createTweetElement(tweet)))
 }
 
 renderTweets(tweetData);
-
-// Test / driver code (temporary)
-// console.log($tweet);
-// to see what it looks like
-
 });
