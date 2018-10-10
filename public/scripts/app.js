@@ -64,7 +64,7 @@ function createTweetElement (tweetInfo) {
 
   </section>
     <footer>
-      ${tweetInfo.content.created_at}
+      ${tweetInfo.created_at}
     </footer>
   </article>`;
   return tweet
