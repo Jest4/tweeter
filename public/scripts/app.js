@@ -54,6 +54,7 @@ const tweetData = [
 ];
 
 function createTweetElement (tweetInfo) {
+  let tweetStamp = (new Date().getTime()) - (new Date(tweetInfo.created_at))
  var tweet = `<article class="tweet">
     <header>
       <img src= ${tweetInfo.user.avatars.small} >
@@ -64,7 +65,7 @@ function createTweetElement (tweetInfo) {
 
   </section>
     <footer>
-      ${tweetInfo.created_at}
+      ${tweetStamp.toString()}ms ago(FIX!)
     </footer>
   </article>`;
   return tweet
