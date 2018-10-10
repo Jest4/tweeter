@@ -7,6 +7,10 @@
   opacity: 0.75;
 }
 
+#tweets {
+   padding-top:40px;
+}
+
 .tweet:hover {
   opacity: 1;
 }
