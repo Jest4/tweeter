@@ -9,6 +9,7 @@ nav {
   float: left;
   overflow: auto;
   clear: both;
+  z-index:500;
 }
 
 #nav-bar .logo {

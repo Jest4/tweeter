@@ -21,7 +21,8 @@ body {
 }
 
 .container {
-  padding-top: 140px;
+  display:block-inline;
+  padding-top:140px;
   margin: 0 auto;
   width: 450px;
 }

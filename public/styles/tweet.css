@@ -1,0 +1,49 @@
+.tweet {
+  background: #FFFFFF;
+  border-radius: 7px;
+  border: 1pt solid #c2c2c2;
+  margin-left: 2em;
+  margin-right: 2em;
+  opacity: 0.75;
+}
+
+.tweet:hover {
+  opacity: 1;
+}
+
+.tweet header {
+  background: #eee;
+  padding: 4px 15px 4px 15px;
+
+
+}
+.tweet .tweetbody {
+  background: #FFFFFF;
+  border-bottom: 1px solid #eee;
+  padding: 20px 20px 20px 20px;
+}
+
+.tweet footer{
+  padding: 8px 15px 8px 15px;
+}
+
+.tweet img {
+  vertical-align: middle;
+  display: inline;
+  border-radius: 7px;
+}
+
+.tweet h2 {
+  display: inline;
+  margin-left: 5px;
+  font-size: 150%;
+}
+
+.tweet h4 {
+  display: inline;
+  float:right;
+  transform: translateY(-50%);
+  font-style: normal;
+  font-size: 100%;
+  font-weight: 400;
+}
