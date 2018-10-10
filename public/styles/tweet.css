@@ -5,10 +5,11 @@
   margin-left: 2em;
   margin-right: 2em;
   opacity: 0.75;
+  margin-top: 40px;
 }
 
-#tweets {
-   padding-top:40px;
+#tweets-container {
+   padding-top:0px;
 }
 
 .tweet:hover {

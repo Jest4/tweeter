@@ -23,10 +23,10 @@ const tweetData = {
 }
 
 function createTweetElement (tweetInfo) {
- `<article class="tweet">
+ return `<article class="tweet">
     <header>
       <img src= ${tweetInfo.user.avatars.small} >
-      <span><h2>${[tweetInfo].name}</h2> <h4>${[tweetInfo].handle}</h4><span>
+      <span><h2>${tweetInfo.user.name}</h2> <h4>${tweetInfo.user.handle}</h4><span>
     </header>
     <section class="tweetbody">
     ${tweetInfo.content.text}
@@ -35,15 +35,16 @@ function createTweetElement (tweetInfo) {
     <footer>
       ${tweetInfo.content.created_at}
     </footer>
-  </article>`
+  </article>`;
 }
 
-
 var $tweet = createTweetElement(tweetData);
-$('#tweets-container').append($tweet);
+function renderTweets($tweet) {
+  $('#tweets-container').append($tweet);
+}
 
 // Test / driver code (temporary)
-console.log($tweet);
+// console.log($tweet);
 // to see what it looks like
 
 });
