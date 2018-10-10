@@ -9,11 +9,14 @@ $( document ).ready(function() {
     var $button = $('#tweetForm');
     $button.submit(function (event) {
       event.preventDefault();
-      if ($('#tweetBox').val().length < 141) {
+      if ($('#tweetBox').val() == "") {
+        alert("You may not tweet an empty tweet!");
+      }else if ($('#tweetBox').val().length < 141) {
       var $serialized = $( tweetForm).serialize();
-      $.post("/tweets", $serialized);
-      } else{
-        alert("You have exceeded the character limit for tweets!")
+      $.post("/tweets", $serialized)
+      .then(function() {loadTweets()});
+      } else {
+        alert("You have exceeded the character limit for tweets!");
       }
     });
   });
@@ -38,16 +41,17 @@ function createTweetElement (tweetInfo) {
 }
 
 function renderTweets(data) {
+  data.sort(function(a,b) {
+    return b.created_at - a.created_at;
+  });
   data.forEach(tweet => $('#tweets-container').append(createTweetElement(tweet)))
 }
 
 function loadTweets() {
   $.getJSON("/tweets/", function (data) {
+  ($('#tweets-container').empty())
     renderTweets(data)})
 }
 
-
-
 loadTweets()
-// renderTweets(tweetData);
 });
