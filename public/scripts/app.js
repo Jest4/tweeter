@@ -13,6 +13,7 @@ $(document).ready(function() {
   var $button = $('#tweetForm');
 
   $button.submit(function (event) {
+      $tweetError.slideUp().text("");
     event.preventDefault();
     if ($tweetBox.val() === "") {
       $tweetError.slideDown().text("ERROR:You may not tweet an empty tweet!");
@@ -22,7 +23,6 @@ $(document).ready(function() {
     .then(function() {
       loadTweets();
       $tweetBox.val("");
-      $tweetError.slideUp().text("");
     }
       );
     } else {
