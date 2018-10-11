@@ -21,6 +21,13 @@ $( document ).ready(function() {
     });
   });
 
+function escape(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
+
 function createTweetElement (tweetInfo) {
   let tweetStamp = (new Date().getTime()) - (new Date(tweetInfo.created_at))
  var tweet = `<article class="tweet">
@@ -29,7 +36,7 @@ function createTweetElement (tweetInfo) {
       <span><h2>${tweetInfo.user.name}</h2> <h4>${tweetInfo.user.handle}</h4><span>
     </header>
     <section class="tweetbody">
-    ${tweetInfo.content.text}
+    ${escape(tweetInfo.content.text)}
 
   </section>
     <footer>
