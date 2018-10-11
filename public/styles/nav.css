@@ -25,3 +25,23 @@ position: relative;
   font-size: 200%;
   padding-left: 10px;
 }
+
+#nav-bar .composeButton {
+float:right;
+line-height:35px;
+width:160px;
+border-width: 1px;
+border-style: solid;
+border-color: black;
+border-radius: 7px;
+padding: 10px 10px 10px 10px;
+background: #e8fdff;
+transform: translateY(10px);
+color: #00a087;
+font-size:150%;
+}
+
+#nav-bar .composeButton:hover {
+  background: white;
+  color:black;
+}

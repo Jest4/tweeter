@@ -21,6 +21,13 @@ $( document ).ready(function() {
     });
   });
 
+    $(function() {
+    var $composeButton = $('#composeButton');
+    $composeButton.click(function (event) {
+      $('.new-tweet').slideToggle()
+    });
+  });
+
 function escape(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
