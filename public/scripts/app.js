@@ -14,7 +14,11 @@ $( document ).ready(function() {
       }else if ($('#tweetBox').val().length < 141) {
       var $serialized = $( tweetForm).serialize();
       $.post("/tweets", $serialized)
-      .then(function() {loadTweets()});
+      .then(function() {
+        loadTweets();
+        $('#tweetBox').val("");
+      }
+        );
       } else {
         alert("You have exceeded the character limit for tweets!");
       }
@@ -25,6 +29,7 @@ $( document ).ready(function() {
     var $composeButton = $('#composeButton');
     $composeButton.click(function (event) {
       $('.new-tweet').slideToggle()
+      //USE FOCUS
     });
   });
 
