@@ -28,8 +28,12 @@ $( document ).ready(function() {
     $(function() {
     var $composeButton = $('#composeButton');
     $composeButton.click(function (event) {
-      $('.new-tweet').slideToggle()
-      //USE FOCUS
+      if($('.new-tweet').is(":hidden")) {
+        $('.new-tweet').slideToggle()
+        $('#tweetBox').focus()
+      } else {
+        $('.new-tweet').slideToggle()
+    }
     });
   });
 
