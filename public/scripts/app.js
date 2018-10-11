@@ -10,17 +10,18 @@ $( document ).ready(function() {
     $button.submit(function (event) {
       event.preventDefault();
       if ($('#tweetBox').val() == "") {
-        alert("You may not tweet an empty tweet!");
+        $("#tweetError").slideDown().text("ERROR:You may not tweet an empty tweet!");
       }else if ($('#tweetBox').val().length < 141) {
       var $serialized = $( tweetForm).serialize();
       $.post("/tweets", $serialized)
       .then(function() {
         loadTweets();
         $('#tweetBox').val("");
+        $("#tweetError").slideUp().text("");
       }
         );
       } else {
-        alert("You have exceeded the character limit for tweets!");
+        $("#tweetError").slideDown().text("ERROR: You have exceeded the character limit for tweets!");
       }
     });
   });
