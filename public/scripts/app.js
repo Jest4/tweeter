@@ -40,7 +40,7 @@ $(document).ready(function() {
    return `<article class="tweet">
       <header>
         <img src= ${tweetInfo.user.avatars.small} >
-        <span><h2>${tweetInfo.user.name}</h2> <h4>${tweetInfo.user.handle}</h4><span>
+        <span><h2>${escape(tweetInfo.user.name)}</h2> <h4>${escape(tweetInfo.user.handle)}</h4><span>
       </header>
       <section class="tweetbody">
         ${escape(tweetInfo.content.text)}
