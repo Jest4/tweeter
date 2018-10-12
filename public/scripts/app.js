@@ -5,26 +5,25 @@
  */
 
 $(document).ready(function() {
-  var $composeButton = $('#composeButton');
-  var $newTweet = $('.new-tweet');
-  var $tweetBox = $('#tweetBox');
-  var $tweetError = $("#tweetError");
-  var $tweetsContainer = $('#tweets-container');
-  var $button = $('#tweetForm');
+  const $composeButton = $('#composeButton');
+  const $newTweet = $('.new-tweet');
+  const $tweetBox = $('#tweetBox');
+  const $tweetError = $("#tweetError");
+  const $tweetsContainer = $('#tweets-container');
+  const $button = $('#tweetForm');
 
   $button.submit(function (event) {
-      $tweetError.slideUp().text("");
     event.preventDefault();
+    $tweetError.slideUp().text("");
     if ($tweetBox.val() === "") {
       $tweetError.slideDown().text("ERROR:You may not tweet an empty tweet!");
     }else if ($tweetBox.val().length < 141) {
-    var $serialized = $tweetBox.serialize();
-    $.post("/tweets", $serialized)
-    .then(function() {
-      loadTweets();
-      $tweetBox.val("");
-    }
-      );
+      var $serialized = $tweetBox.serialize();
+      $.post("/tweets", $serialized)
+      .then(function() {
+        loadTweets();
+        $tweetBox.val("");
+      });
     } else {
       $tweetError.slideDown().text("ERROR: You have exceeded the character limit for tweets!");
     }
@@ -75,6 +74,6 @@ $(document).ready(function() {
     }
   });
 
-
+  // initial load
   loadTweets();
 });
