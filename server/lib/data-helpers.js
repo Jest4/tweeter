@@ -10,7 +10,7 @@ module.exports = function makeDataHelpers(db) {
         db.collection("tweets").insertOne(newTweet);
         callback(null, true);
       },
-    // Get all tweets in `db`
+      // Get all tweets in `db`
       getTweets: function(callback) {
         db.collection("tweets").find().toArray(function(err, results) {
         if (err) throw err;

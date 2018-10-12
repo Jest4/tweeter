@@ -30,8 +30,7 @@ module.exports = function(DataHelpers) {
       },
       created_at: Date.now()
     };
-console.log(tweet)
-
+    console.log("New Tweet: ", tweet)
     DataHelpers.saveTweet(tweet, (err) => {
       if (err) {
         res.status(500).json({ error: err.message });
@@ -40,7 +39,5 @@ console.log(tweet)
       }
     });
   });
-
   return tweetsRoutes;
-
 }
