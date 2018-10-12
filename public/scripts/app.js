@@ -47,11 +47,10 @@ $(document).ready(function() {
       ${escape(tweetInfo.content.text)}
     </section>
       <footer>
-        ${tweetStamp.toString()}ms ago(FIX!)
+        ${$.timeago(tweetInfo.created_at)}
       </footer>
     </article>`;
     return tweet
-  //DATESTAMP NEEDS TO BE FORMATTED (maybe use npm moment.js or time-ago ??)
   };
 
   function renderTweets(data) {
