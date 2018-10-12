@@ -34,46 +34,44 @@ $(document).ready(function() {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
-  };
+  }
 
   function createTweetElement (tweetInfo) {
-    let tweetStamp = (new Date().getTime()) - (new Date(tweetInfo.created_at))
-   var tweet = `<article class="tweet">
+   return `<article class="tweet">
       <header>
         <img src= ${tweetInfo.user.avatars.small} >
         <span><h2>${tweetInfo.user.name}</h2> <h4>${tweetInfo.user.handle}</h4><span>
       </header>
       <section class="tweetbody">
-      ${escape(tweetInfo.content.text)}
-    </section>
+        ${escape(tweetInfo.content.text)}
+      </section>
       <footer>
         <div class="tweetTime">${$.timeago(tweetInfo.created_at)}</div>
         <div class="reactions"><ion-icon name="flag"></ion-icon><ion-icon name="repeat"></ion-icon><ion-icon name="heart"></ion-icon></div>
         </ion-icon>
       </footer>
     </article>`;
-    return tweet
-  };
+  }
 
   function renderTweets(data) {
     data.sort(function(a,b) {
       return b.created_at - a.created_at;
     });
-    data.forEach(tweet => $tweetsContainer.append(createTweetElement(tweet)))
-  };
+    data.forEach(tweet => $tweetsContainer.append(createTweetElement(tweet)));
+  }
 
   function loadTweets() {
     $.getJSON("/tweets/", function (data) {
-      ($tweetsContainer.empty())
-      renderTweets(data)
-    })
-  };
+      ($tweetsContainer.empty());
+      renderTweets(data);
+    });
+  }
 
   $composeButton.click(function (event) {
     if ($newTweet.is(":hidden")) {
-      $newTweet.slideToggle(function() {$tweetBox.focus()})
+      $newTweet.slideToggle(function() {$tweetBox.focus();});
     } else {
-      $newTweet.slideToggle()
+      $newTweet.slideToggle();
     }
   });
 

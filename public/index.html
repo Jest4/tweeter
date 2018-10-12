@@ -20,12 +20,9 @@
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
     <script src="https://timeago.yarp.com/jquery.timeago.js" type="text/javascript"></script>
     <script src="https://unpkg.com/ionicons@4.4.4/dist/ionicons.js"></script>
-
     <!-- App JS -->
   </head>
-
   <body>
-
     <!-- Top nav bar (fixed) -->
     <nav id="nav-bar">
       <img class="logo" src="/images/bird.png">
@@ -35,20 +32,19 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-<section class="new-tweet">
-  <h2>Compose Tweet</h2>
-  <form id="tweetForm">
-    <textarea id="tweetBox" name="text" placeholder="What are you humming about?"></textarea>
-    <input id="tweetSubmit" type="submit" value="Tweet">
-    <span class="counter">140</span>
-    <div id="tweetError" hidden> ERROR: </div>
-  </form>
-</section>
-<section class="container" id="tweets-container">
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form id="tweetForm">
+          <textarea id="tweetBox" name="text" placeholder="What are you humming about?"></textarea>
+          <input id="tweetSubmit" type="submit" value="Tweet">
+          <span class="counter">140</span>
+          <div id="tweetError" hidden> ERROR: </div>
+        </form>
+      </section>
+      <section class="container" id="tweets-container">
 <!-- tweets go here -->
-</section>
+      </section>
     </main>
-
   </body>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>

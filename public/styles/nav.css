@@ -7,7 +7,6 @@ nav {
   padding-left: 2em;
   padding-right: 2em;
   float: left;
-  overflow: auto;
   clear: both;
   z-index:500;
 }

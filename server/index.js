@@ -9,7 +9,7 @@ const app           = express();
 
 
 const MongoClient = require("mongodb").MongoClient;
-const MONGODB_URI = "mongodb://localhost:27017/tweeter"
+const MONGODB_URI = "mongodb://localhost:27017/tweeter";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -22,46 +22,46 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
   }
   console.log(`Connected to mongodb: ${MONGODB_URI}`);
 
-// The in-memory database of tweets. It's a basic object with an array in it.
-// const db = require("./lib/in-memory-db");
+  // The in-memory database of tweets. It's a basic object with an array in it.
+  // const db = require("./lib/in-memory-db");
 
-// The `data-helpers` module provides an interface to the database of tweets.
-// This simple interface layer has a big benefit: we could switch out the
-// actual database it uses and see little to no changes elsewhere in the code
-// (hint hint).
-//
-// Because it exports a function that expects the `db` as a parameter, we can
-// require it and pass the `db` parameter immediately:
-const DataHelpers = require("./lib/data-helpers.js")(db);
+  // The `data-helpers` module provides an interface to the database of tweets.
+  // This simple interface layer has a big benefit: we could switch out the
+  // actual database it uses and see little to no changes elsewhere in the code
+  // (hint hint).
+  //
+  // Because it exports a function that expects the `db` as a parameter, we can
+  // require it and pass the `db` parameter immediately:
+  const DataHelpers = require("./lib/data-helpers.js")(db);
 
-// The `tweets-routes` module works similarly: we pass it the `DataHelpers` object
-// so it can define routes that use it to interact with the data layer.
-const tweetsRoutes = require("./routes/tweets")(DataHelpers);
+  // The `tweets-routes` module works similarly: we pass it the `DataHelpers` object
+  // so it can define routes that use it to interact with the data layer.
+  const tweetsRoutes = require("./routes/tweets")(DataHelpers);
 
-// Mount the tweets routes at the "/tweets" path prefix:
-app.use("/tweets", tweetsRoutes);
+  // Mount the tweets routes at the "/tweets" path prefix:
+  app.use("/tweets", tweetsRoutes);
 
-app.post("/tweets/", (req, res) => {
-  req.session = null;
-  res.redirect("/urls/");
+  app.post("/tweets/", (req, res) => {
+    req.session = null;
+    res.redirect("/urls/");
+  });
+
+  app.listen(PORT, () => {
+    console.log("Example app listening on port " + PORT);
+  });
 });
-
-app.listen(PORT, () => {
-  console.log("Example app listening on port " + PORT);
-});
-})
 
 function gracefulShutdown() {
-  console.log('\nShutting down gracefully...')
+  console.log('\nShutting down gracefully...');
   try {
-    db.close()
+    db.close();
   } catch (err) {
-    throw err
+    throw err;
   } finally {
-    console.log("Successful shutdown.")
-    process.exit()
+    console.log("Successful shutdown.");
+    process.exit();
   }
 }
 
-process.on('SIGTERM', gracefulShutdown) // listen for TERM signal .e.g. kill
-process.on('SIGINT', gracefulShutdown) // listen for INT signal e.g. Ctrl-C
+process.on('SIGTERM', gracefulShutdown); // listen for TERM signal .e.g. kill
+process.on('SIGINT', gracefulShutdown); // listen for INT signal e.g. Ctrl-C
