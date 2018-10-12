@@ -47,7 +47,9 @@ $(document).ready(function() {
       ${escape(tweetInfo.content.text)}
     </section>
       <footer>
-        ${$.timeago(tweetInfo.created_at)}
+        <div class="tweetTime">${$.timeago(tweetInfo.created_at)}</div>
+        <div class="reactions"><ion-icon name="flag"></ion-icon><ion-icon name="repeat"></ion-icon><ion-icon name="heart"></ion-icon></div>
+        </ion-icon>
       </footer>
     </article>`;
     return tweet

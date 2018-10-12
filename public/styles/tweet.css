@@ -16,6 +16,10 @@
   opacity: 1;
 }
 
+.tweet:hover .reactions {
+  opacity: 1;
+}
+
 .tweet header {
   background: #eee;
   padding: 4px 15px 4px 15px;
@@ -31,6 +35,15 @@
 
 .tweet footer{
   padding: 8px 15px 8px 15px;
+}
+
+.tweetTime{
+  display:inline;
+}
+
+.reactions{
+  opacity:0;
+  float:right;
 }
 
 .tweet img {
