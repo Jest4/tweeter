@@ -49,3 +49,18 @@ app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
 });
 })
+
+function gracefulShutdown() {
+  console.log('\nShutting down gracefully...')
+  try {
+    db.close()
+  } catch (err) {
+    throw err
+  } finally {
+    console.log("Successful shutdown.")
+    process.exit()
+  }
+}
+
+process.on('SIGTERM', gracefulShutdown) // listen for TERM signal .e.g. kill
+process.on('SIGINT', gracefulShutdown) // listen for INT signal e.g. Ctrl-C
